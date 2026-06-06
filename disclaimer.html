@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - Sawarid TV</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/VLjbbR22/1000253616.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #E50914;
+            --text-main: #FFFFFF;
+            --text-muted: #D1D1D1;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            margin: 0; padding: 0;
+            background: linear-gradient(180deg, #711054 0%, #3e1561 50%, #202d6d 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif; 
+            user-select: none; -webkit-user-select: none;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+        header { text-align: center; margin-bottom: 40px; }
+        .app-logo { width: 100px; height: 100px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s;}
+        .app-logo:hover { transform: scale(1.05); }
+        .page-title {
+            font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin: 15px 0 5px 0;
+            background: linear-gradient(90deg, #FF512F, #DD2476, #4facfe);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 15px; padding: 30px; line-height: 1.8;
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        h2 { color: #E50914; font-size: 1.5rem; margin-top: 30px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;}
+        h2:first-child { margin-top: 0; }
+        p { color: var(--text-muted); font-size: 1rem; }
+        ul { color: var(--text-muted); }
+        li { margin-bottom: 10px; }
+
+        .back-btn {
+            display: inline-block; margin-top: 30px;
+            background: var(--glass-bg); color: white; text-decoration: none;
+            padding: 12px 30px; font-weight: bold; border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.2); border-color: #FFF; transform: scale(1.02); }
+
+        footer { text-align: center; margin-top: 50px; color: #888; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="index.html"><img src="https://i.postimg.cc/VLjbbR22/1000253616.png" alt="Sawarid Logo" class="app-logo"></a>
+            <h1 class="page-title">Legal Disclaimer</h1>
+            <p style="color: #D1D1D1;">Copyright & Usage Notice</p>
+        </header>
+
+        <div class="glass-card">
+            <h2>1. No Hosting & No Broadcasting</h2>
+            <p><strong>Sawarid (سواريد)</strong> is strictly a <strong>Media Player and Aggregator</strong>. We <strong>DO NOT</strong> host, broadcast, archive, store, or distribute any media files, video streams, or TV channels on our servers. We have no control over the content that is played through this application.</p>
+
+            <h2>2. Third-Party Links & Directory</h2>
+            <p>Our application functions similarly to a search engine or directory. Any default M3U playlists, streaming links, or TV channels available within the app are collected from free and public domains on the internet. All streaming links and content remain the sole property and copyright of their respective owners.</p>
+
+            <h2>3. User Responsibility</h2>
+            <p>Users of Sawarid are entirely responsible for the content they choose to add, access, or play through the app. We strongly urge our users to respect international copyright laws and access content only through legal and authorized means.</p>
+
+            <h2>4. Advertisement Content Warning</h2>
+            <p>To keep the app free and maintain our servers, we rely on third-party advertising networks. We have <strong>no direct control</strong> over the specific ads displayed (such as browser redirects).<br><br>
+            <strong>Strict Warning:</strong> We strongly condemn gambling and adult (18+) content. Such content is strictly <strong>HARAM</strong>. Although we try our best to filter them, if any inappropriate ad appears, we urge users to close it immediately. We bear zero liability for any actions or losses incurred on third-party ad websites.</p>
+
+            <h2>5. DMCA & Copyright Takedown</h2>
+            <p>Sawarid respects intellectual property rights. Since we do not host any of the streams, we cannot physically remove content from the internet. However, if you are a copyright owner or an official representative, and you believe a link in our default playlist infringes upon your rights, please contact us immediately.</p>
+            <p>We will promptly remove the infringing link from our app's directory.</p>
+            
+            <p><strong>Contact Email:</strong> <a href="https://contact2.me/jrOWxm" style="color: #4facfe; text-decoration: none; font-weight: bold;">Inbox 📧</a></p>
+
+            <div style="text-align: center;">
+                <a href="index.html" class="back-btn">⬅ Back to Home</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2026 Sawarid TV. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Security Script -->
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault()); 
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.shiftKey && e.keyCode == 74) || (e.ctrlKey && e.keyCode == 85) || (e.ctrlKey && e.keyCode == 67) || (e.ctrlKey && e.keyCode == 86)) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
