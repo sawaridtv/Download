@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Sawarid TV</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/VLjbbR22/1000253616.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #E50914;
+            --text-main: #FFFFFF;
+            --text-muted: #D1D1D1;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            margin: 0; padding: 0;
+            background: linear-gradient(180deg, #711054 0%, #3e1561 50%, #202d6d 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif; 
+            user-select: none; -webkit-user-select: none;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh;
+        }
+
+        .container { max-width: 600px; width: 90%; padding: 20px; }
+
+        header { text-align: center; margin-bottom: 30px; }
+        .app-logo { width: 90px; height: 90px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); cursor: pointer; transition: transform 0.3s;}
+        .app-logo:hover { transform: scale(1.05); }
+        .page-title {
+            font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin: 15px 0 5px 0;
+            background: linear-gradient(90deg, #FF512F, #DD2476, #4facfe);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 15px; padding: 40px 30px; 
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        /* Form Styles */
+        .form-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; font-size: 0.9rem;}
+        
+        input, textarea {
+            width: 100%; padding: 15px; border-radius: 10px;
+            background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border);
+            color: white; font-family: 'Poppins', sans-serif; font-size: 1rem;
+            box-sizing: border-box; outline: none; transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus { border-color: #4facfe; }
+        textarea { height: 150px; resize: none; }
+
+        .submit-btn {
+            width: 100%; background: linear-gradient(90deg, #E50914, #ff416c); 
+            color: white; border: none; padding: 15px; font-size: 1.2rem; font-weight: bold; 
+            border-radius: 10px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+        }
+        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(229, 9, 20, 0.5); }
+
+        .back-btn {
+            display: inline-block; margin-top: 30px;
+            background: transparent; color: var(--text-muted); text-decoration: none;
+            font-weight: 600; transition: color 0.3s;
+        }
+        .back-btn:hover { color: #4facfe; }
+
+        /* Notification message */
+        #result { margin-top: 15px; font-weight: bold; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <a href="index.html"><img src="https://i.postimg.cc/VLjbbR22/1000253616.png" alt="Sawarid Logo" class="app-logo"></a>
+            <h1 class="page-title">Contact Us</h1>
+            <p style="color: #D1D1D1;">We'd love to hear from you!</p>
+        </header>
+
+        <div class="glass-card">
+            <!-- 🔴 Web3Forms Action Link -->
+            <form action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                
+                <!-- 🔴 Replace YOUR_ACCESS_KEY_HERE with the key you got in your email -->
+                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email (So we can reply)</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" placeholder="Type your message, issue, or feedback here..." required></textarea>
+                </div>
+
+                <!-- Custom Redirect or success message behavior -->
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+                <button type="submit" class="submit-btn">SEND MESSAGE 🚀</button>
+                <p id="result"></p>
+            </form>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">⬅ Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Form Submit Logic (To show success message without leaving page) -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const result = document.getElementById('result');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            result.innerHTML = "Sending...";
+            result.style.color = "#D1D1D1";
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = "✅ Message sent successfully! We will reply soon.";
+                    result.style.color = "#4facfe";
+                } else {
+                    result.innerHTML = json.message;
+                    result.style.color = "#E50914";
+                }
+            })
+            .catch(error => {
+                result.innerHTML = "Something went wrong!";
+                result.style.color = "#E50914";
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => { result.style.display = "none"; }, 5000);
+            });
+        });
+
+        // Security Script
+        document.addEventListener('contextmenu', event => event.preventDefault()); 
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73) || (e.ctrlKey && e.shiftKey && e.keyCode == 74) || (e.ctrlKey && e.keyCode == 85) || (e.ctrlKey && e.keyCode == 67) || (e.ctrlKey && e.keyCode == 86)) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
